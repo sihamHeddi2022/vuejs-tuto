@@ -1,49 +1,36 @@
 <template>
   <div class="hello">
-   
-     <p v-for="item in array1" :key="item.id">
-         {{item}}
+     <p>
+        skkskskskskskskskks
      </p>
-       <p v-for="item in arrayObject" :key="item.id">
-         {{item.name}}
-       </p>
-      <hr>
-        <p v-for="({name},index) in arrayObject" :key="index">
-         {{name}} -  {{index}} 
-       </p>
-          <hr>
-        <p v-for="n in 10" :key="n.id">
-          {{n}}
-        </p>
-        <h1 v-if="ok2">
-              kskkskskskksks
-        </h1>
-        <p v-else>nothing</p>
-        <!-- you can use v-if in template -->
-        <p v-for="n in 10" :key="n" >
-          <span  v-if="ok1">{{n}}</span>
-        </p>
+     
+     <!-- Event modifier -->
+
+     <button type="submit" @click.prevent="($event)=>submit($event)">
+        submit
+     </button>
+
+     {{ok2}}
+   
+    <input type="text" :value="count" @keyup.enter="count++">
   </div>
 </template>
 
 <script>
 export default {
   name: 'HelloWorld',
- 
+  methods:{
+    submit(e){
+      console.log(e);
+      this.ok2 = true
+    }
+  },
   data(){
     return {
+      count:0,
       ok1:true,
       ok2:false,
-      array1:["hdhdhd","dhdhdh","jjdjdjdjd"],
-      arrayObject:[
-        {
-         name:"suzan",
-
-        },
-        {
-         name:"amel"
-        }
-      ]
+      
      
     }
   }
